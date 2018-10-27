@@ -5,4 +5,4 @@
 #
   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
   auditorium1 = Auditorium.create(capacity: 50)
-  showtime1 = Showtime.create(datetime: Time.now, seats_taken: 5, auditorium_id: 1, movie_id: 1)
+  showing1 = Showing.create(datetime: Time.now, seats_taken: 5, auditorium_id: 1, movie_id: 1)

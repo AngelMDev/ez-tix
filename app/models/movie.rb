@@ -1,8 +1,8 @@
 class Movie < ApplicationRecord
-  has_many :showtimes
-  has_many :auditoria, through: :showtimes
+  has_many :showings
+  has_many :auditoria, through: :showings
 
   #TODO change to >
-  scope :playing_now, -> { joins(:showtimes).where('showtimes.datetime < ?', Time.now) }
+  scope :playing_now, -> { joins(:showings).where('showings.datetime < ?', Time.now) }
 
 end

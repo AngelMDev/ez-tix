@@ -3,8 +3,8 @@
   <br />
   showings:
   <br />
-  <% movie.showtimes.each do |showing| %>
-    <%= link_to showing.datetime, showing unless showing.sold_out? %>
+  <% movie.showings.each do |showing| %>
+    <%= link_to showing.time, movie_showing_path(movie.id, showing.id) unless showing.sold_out? %>
   <% end %>
 <% end %>
 

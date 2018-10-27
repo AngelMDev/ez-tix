@@ -21,13 +21,6 @@ ActiveRecord::Schema.define(version: 20181027030348) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "credit_card"
-    t.string "expiration_date"
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -39,12 +32,15 @@ ActiveRecord::Schema.define(version: 20181027030348) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "showtime_id"
-    t.integer "customer_id"
-    t.integer "tickets_sold"
+    t.string "name"
+    t.string "email"
+    t.string "credit_card"
+    t.string "expiration_date"
+    t.integer "num_tickets"
+    t.integer "showing_id"
   end
 
-  create_table "showtimes", force: :cascade do |t|
+  create_table "showings", force: :cascade do |t|
     t.datetime "datetime"
     t.integer "seats_taken"
     t.integer "auditorium_id"

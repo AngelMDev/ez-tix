@@ -1,4 +1,4 @@
 class Auditorium < ApplicationRecord
-  has_many :showtimes
-  has_many :movies, through: :showtimes
+  has_many :showings
+  has_many :movies, through: :showings
 end

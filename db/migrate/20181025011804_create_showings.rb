@@ -1,6 +1,6 @@
-class CreateShowtimes < ActiveRecord::Migration[5.1]
+class CreateShowings < ActiveRecord::Migration[5.1]
   def change
-    create_table :showtimes do |t|
+    create_table :showings do |t|
       t.datetime :datetime
       t.integer :seats_taken
       t.integer :auditorium_id

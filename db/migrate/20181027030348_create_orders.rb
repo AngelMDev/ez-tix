@@ -1,9 +1,11 @@
 class CreateOrders < ActiveRecord::Migration[5.1]
   def change
     create_table :orders do |t|
-      t.integer :showtime_id
-      t.integer :customer_id
-      t.integer :tickets_sold
+      t.string :name
+      t.string :email
+      t.string :credit_card
+      t.string :expiration_date
+      t.integer :showing_id
     end
   end
 end

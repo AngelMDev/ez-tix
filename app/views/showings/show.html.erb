@@ -4,5 +4,6 @@
 <p> Rating: <%= @movie.rating  %> </p>
 <p> Duration: <%= @movie.duration %> </p>
 
-<p> Date and time: <%= @showtime.datetime %> </p>
+<p> Date and time: <%= @showing.time %> </p>
 
+<%= link_to "Buy", new_order_path(showing_id: @showing.id) %>
