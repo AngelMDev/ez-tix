@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20181027030348) do
     t.string "email"
     t.string "credit_card"
     t.string "expiration_date"
-    t.integer "num_tickets"
     t.integer "showing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "showings", force: :cascade do |t|

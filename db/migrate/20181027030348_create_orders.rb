@@ -6,6 +6,7 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.string :credit_card
       t.string :expiration_date
       t.integer :showing_id
+      t.timestamps
     end
   end
 end
