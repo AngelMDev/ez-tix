@@ -9,7 +9,7 @@ class Showing < ApplicationRecord
     self.auditorium.capacity - self.seats_taken <= 0
   end
 
-  def time
+  def formatted_date
     self.datetime.strftime("%H:%M %m-%d-%Y")
   end
 

@@ -4,7 +4,7 @@
   showings:
   <br />
   <% movie.showings.each do |showing| %>
-    <%= link_to showing.time, movie_showing_path(movie.id, showing.id) unless showing.sold_out? %>
+    <%= link_to showing.formatted_date, movie_showing_path(movie.id, showing.id) unless showing.sold_out? %>
   <% end %>
 <% end %>
 

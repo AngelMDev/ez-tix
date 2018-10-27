@@ -1,5 +1,5 @@
 <h2> Buy tickets for <%= @showing.movie.name %> </h2>
-<h3> Time and date: <%= @showing.time %> </h3>
+<h3> Time and date: <%= @showing.formatted_date %> </h3>
 
 <%= form_for @order, url: {action: "create"}, remote: true do |f| %>
   <%= f.label :name %>
