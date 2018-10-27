@@ -1,0 +1,10 @@
+<% @movies.each do |movie| %>
+  <%= movie.name %>
+  <br />
+  showings:
+  <br />
+  <% movie.showtimes.each do |showing| %>
+    <%= link_to showing.datetime, showing unless showing.sold_out? %>
+  <% end %>
+<% end %>
+
