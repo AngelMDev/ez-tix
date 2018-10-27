@@ -1,0 +1,5 @@
+<%= form_for @auditoria, url: {action: "create"} do |f| %>
+  <%= f.label :capacity %>
+  <%= f.text_field :capacity %>
+  <%= f.submit "Create" %>
+<% end %>
