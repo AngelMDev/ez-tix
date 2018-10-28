@@ -1,0 +1,5 @@
+<% if @showing.errors.any? %>
+  alert("Error: <%= @showing.errors.full_messages.join('; ') %>")  
+<% else %>
+  $("<%= j render @showing %>").appendTo("#showings_list");
+<% end %> 

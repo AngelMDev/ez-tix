@@ -1,0 +1,5 @@
+<% if @auditorium.errors.any? %>
+  alert("Error: <%= @auditorium.errors.full_messages.join(', ') %>")  
+<% else %>
+  $("<%= j render @auditorium %>").appendTo("#auditoria_list");
+<% end %> 

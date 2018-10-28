@@ -1,0 +1,16 @@
+<h2> Add showings for <%= @movie.name %> </h2>
+
+<%= form_for @showing, url: { action: "create" }, remote: true, html: {id: "showing-form" } do |f| %>
+  <%= f.label :datetime %>
+  <%= f.datetime_field :datetime %>
+  <%= f.label :auditorium_id %>
+  <%= f.select :auditorium_id, @auditorium_list %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<h2> Current showings for this movie: </h2>
+<ul id="showings_list">
+  <%= render @movie.showings %>
+</ul>
+

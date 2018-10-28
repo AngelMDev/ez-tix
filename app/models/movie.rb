@@ -3,7 +3,7 @@ class Movie < ApplicationRecord
   has_many :auditoria, through: :showings
 
   validates :name, presence: true
-  #TODO change to >
-  scope :playing_now, -> { joins(:showings).where('showings.datetime < ?', Time.now) }
+
+  scope :now_playing, -> { joins(:showings).where('showings.datetime > ?', Time.current).distinct }
 
 end

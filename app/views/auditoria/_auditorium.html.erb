@@ -1,0 +1,4 @@
+<li id="auditorium_<%= auditorium.id %>">
+  <%= "Auditorium #{auditorium.name}"%>
+  <%= link_to "remove", auditorium, method: :delete, remote: true, data: { confirm: "are you sure?" } %>
+</li>

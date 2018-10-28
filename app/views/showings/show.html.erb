@@ -1,8 +1,4 @@
-<h2> <%= @movie.name %> </h2>
-<p> Genre: <%= @movie.genre %> </p>
-<p> Description: <%= @movie.description %> </p>
-<p> Rating: <%= @movie.rating  %> </p>
-<p> Duration: <%= @movie.duration %> </p>
+<%= render "application/movie_details" %>
 
 <p> Date and time: <%= @showing.formatted_date %> </p>
 

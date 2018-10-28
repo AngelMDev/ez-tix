@@ -1,10 +1,17 @@
-<% @movies.each do |movie| %>
-  <%= movie.name %>
-  <br />
-  showings:
-  <br />
-  <% movie.showings.each do |showing| %>
-    <%= link_to showing.formatted_date, movie_showing_path(movie.id, showing.id) unless showing.sold_out? %>
+<ul>
+  <% @movies.each do |movie| %>
+    <li>
+      <%= link_to movie.name, movie %>
+      showings:
+      <ul>
+        <% movie.showings.available[0..3].each do |showing| %>
+          <li>
+            <%= link_to showing.formatted_date, movie_showing_path(movie.id, showing.id) %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "View more ->", movie %>
+    </li>
   <% end %>
-<% end %>
+</ul>
 

@@ -7,15 +7,31 @@ class ShowingsController < ApplicationController
 
   def new
     @movie = Movie.find(params[:movie_id])
+    @auditorium_list = Auditorium.all.ids
     @showing = Showing.new
   end
 
   def create
-    showing = Showing.create(showing_params)
-    if showing.persisted?
-      # ajax response
-    else
+    @showing = Showing.create(showing_params)
+    respond_to do |format|
+      if @showing.persisted? 
+        format.html { redirect_to @showing }
+        format.js
+        #format.json { render json: @showing }
+      else
+        format.html { render action: "new" }
+        format.js
+        format.json { render json: @showing.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
+  def destroy
+    @showing = Showing.find(params[:id])
+    @showing.destroy
+    respond_to do |format|
+      format.html { redirect_to movies_path }
+      format.js
     end
   end
 

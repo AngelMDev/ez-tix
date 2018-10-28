@@ -1,0 +1,12 @@
+<%= render "application/movie_details" %>
+
+<p>Showtimes for this movie: </p>
+
+<ul>
+<% @movie.showings.now_playing.each do |showing| %>
+  <% if !showing.sold_out? %>
+    <li><%= link_to showing.formatted_date, movie_showing_path(@movie, showing) %> </li>
+  <% else %>
+    <li><%= showing.formatted_date %> - Sold Out!</li>
+  <% end %>
+<% end %>

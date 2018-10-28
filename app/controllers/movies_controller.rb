@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
   end
 
   def index 
-    @movies = Movie.playing_now
+    @movies = Movie.now_playing
   end 
 
   def new
@@ -17,6 +17,11 @@ class MoviesController < ApplicationController
     if movie.persisted?
       redirect_to new_movie_showing_path(movie)
     end
+  end
+
+  def destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
   end
 
   private

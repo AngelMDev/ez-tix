@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20181027030348) do
   enable_extension "plpgsql"
 
   create_table "auditoria", force: :cascade do |t|
+    t.string "name"
     t.integer "capacity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 20181027030348) do
 
   create_table "showings", force: :cascade do |t|
     t.datetime "datetime"
-    t.integer "seats_taken"
+    t.integer "seats_taken", default: 0
     t.integer "auditorium_id"
     t.integer "movie_id"
     t.datetime "created_at", null: false
