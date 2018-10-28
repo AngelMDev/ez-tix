@@ -20,6 +20,21 @@ class AuditoriaController < ApplicationController
     end
   end
 
+  def edit
+    @auditorium = Auditorium.find(params[:id])
+  end
+
+  def update
+    auditorium = Auditorium.find(params[:id])
+    if auditorium.update_attributes(auditorium_params)
+      flash[:success] = "Auditorium updated successfully!"
+      redirect_to new_auditorium_path
+    else   
+      flash[:error] = auditorium.errors.full_messages.to_sentence
+      redirect_to new_auditorium_path
+    end
+  end
+
   def destroy
     auditorium = Auditorium.find(params[:id])
     auditorium.destroy

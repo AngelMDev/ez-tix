@@ -1,4 +1,6 @@
 <li id="auditorium_<%= auditorium.id %>">
   <%= "Auditorium #{auditorium.name}"%>
+  <%= "- capacity: #{auditorium.capacity} |"  %>
+  <%= link_to "edit", edit_auditorium_path(auditorium) %>
   <%= link_to "remove", auditorium, method: :delete, remote: true, data: { confirm: "are you sure?" } %>
 </li>

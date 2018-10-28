@@ -19,6 +19,21 @@ class MoviesController < ApplicationController
     end
   end
 
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+
+  def update
+    movie = Movie.find(params[:id])
+    if movie.update_attributes(movie_params)
+      flash[:success] = "Movie updated successfully!"
+      redirect_to movie
+    else   
+      flash[:error] = movie.errors.full_messages.to_sentence
+      redirect_to movie
+    end
+  end
+
   def destroy
     movie = Movie.find(params[:id])
     movie.destroy

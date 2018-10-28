@@ -1,14 +1,8 @@
 <h2> Manage auditoriums: </h2>
 
 <p>Add new auditorium: </p>
-<!-- todo: remove remote true where not necessary, NOT HERE THO -->
-<%= form_for @auditorium, url: {action: "create"}, remote: true do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :capacity %>
-  <%= f.text_field :capacity %>
-  <%= f.submit "Create" %>
-<% end %>
+
+<%= render "form" %>
 
 <p>Auditorium list: </p>
 <ul id="auditoria_list">
