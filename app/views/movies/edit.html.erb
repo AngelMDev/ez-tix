@@ -1,3 +1,10 @@
 <h2> Edit <%= @movie.name %> </h2>
 
 <%= render "form" %> 
+
+<h2> Current showings for this movie: </h2>
+<ul id="showings_list">
+  <%= render @movie.showings %>
+</ul>
+
+<%= link_to "add showings ->", new_movie_showing_path(@movie) %>

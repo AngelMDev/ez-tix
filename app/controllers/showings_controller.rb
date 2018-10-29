@@ -1,5 +1,7 @@
 class ShowingsController < ApplicationController
 
+  before_action :require_admin, except: :show
+  
   def show
     @showing = Showing.find(params[:id])
     @movie = @showing.movie

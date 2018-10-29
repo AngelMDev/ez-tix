@@ -1,6 +1,5 @@
 class CreditcardValidator < ActiveModel::Validator
   def validate(record)
-    record.errors.add(:credit_card, "contains invalid characters") unless record.credit_card === /\A\d[\d,\s]*\z/
     exp = record.expiration_date.split("/")
     exp[1].prepend("20")
     exp.map!(&:to_i)

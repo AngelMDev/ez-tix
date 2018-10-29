@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-
+  before_action :require_admin, except: [:show, :index]
+  
   def show 
     @movie = Movie.find(params[:id])
   end

@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if session[:is_admin?] %>
+      <%= link_to "view as user", as_user_path %>
+    <% else %>
+      <%= link_to "view as admin", as_admin_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

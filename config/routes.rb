@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   resources :orders
   resources :auditoria
+  get "as_admin", to: "sessions#as_admin"
+  get "as_user", to: "sessions#as_user"
 end
