@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Thank you, <%= @order.name %>!</h3>
+    <p>
+      This is to confirm your ticket purchase: <%= "#{@order.movie_name} at #{@order.movie_date} in auditorium #{@order.auditorium}" %>
+    </p>
+    <p> Enjoy your movie! </p>
+    <p> Ez-tix team </p>
+  </body>
+</html>

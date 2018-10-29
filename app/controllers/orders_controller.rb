@@ -1,10 +1,4 @@
 class OrdersController < ApplicationController
-  
-  before_action :require_admin
-
-  def show
-    @order = Order.find(params[:id])
-  end
 
   def new
     @showing = Showing.find(params[:showing_id])
@@ -14,8 +8,13 @@ class OrdersController < ApplicationController
   def create
     order = Order.create!(order_params)
     if order.persisted?
-      redirect_to order
+      order.showing.increment!(:seats_taken)
+      flash[:success] = "Thank you! A confirmation has been sent to your email address."
+      OrderMailer.order_confirmation(order).deliver
+      redirect_to root_path
     else
+      flash[:error] = "There was an error processing this order."
+      redirect_to new_order_path(showing_id: order.showing.id)
     end
   end
 

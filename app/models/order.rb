@@ -12,6 +12,14 @@ class Order < ApplicationRecord
     self.showing.movie.name
   end
 
+  def movie_date
+    self.showing.formatted_date
+  end
+
+  def auditorium
+    self.showing.auditorium.name
+  end
+
   private
 
   def valid_showing
