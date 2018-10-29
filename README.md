@@ -73,6 +73,8 @@ Things that I would like to add:
 
 * Better administration of showings, perhaps a central page to manage them all.
 
+* TESTING: Unfortunately I didn't have the time to make proper automated tests, however I made sure to manually test every possible thing that could go wrong. I'd definitely like to add important validation and controller tests.
+
 
 
 
