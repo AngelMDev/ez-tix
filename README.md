@@ -12,7 +12,7 @@ run ``` rake db:seed ``` to populate the DB with seed data.
 
 A basic diagram of the database:
 
-<img src="https://imgur.com/6XFJ6EP" width="350" title="hover text">
+![diagram](diagram.png "Diagram")
 
 ## Relationships
 
