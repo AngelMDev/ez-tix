@@ -32,7 +32,7 @@ Showings
 Orders
 * Belongs to showing
 
-These relationships are clear and straight forward and allows us to work with the tables in a way that makes sense while satisfying the requirements of the project.
+These relationships are clear, straight forward and allows us to work with the tables in a way that makes sense while satisfying the requirements of the project.
 One thing to note is the inclusion of seats_taken in the showings table, this value could be calculated as a virtual attribute based on a showing's order and the linked auditorium capacity, however I determined that, for performance reasons, it is better to have it as a column in my table. The reasoning behind that is that, as per the requirements, the movie index will display only movies that have available showings, that is: It it a showing that has not expired and it has not sold out, querying the movies -> showings -> (auditoria, orders) tables every time users visit the homepage or a movie show page could impact the performance of the application if we're dealing with a large quantity of users simultaneously, the seats_taken field mitigates this due to it being updated when a purchase has been made, reducing the tables queried from four to only movies -> showings -> auditoria.
 
 Some models have scopes and/or virtual attributes that facilitate the handling of data within the application.
