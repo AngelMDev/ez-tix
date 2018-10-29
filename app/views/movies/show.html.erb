@@ -1,6 +1,7 @@
 <%= render "application/movie_details" %>
 <% if session[:is_admin?] %>
-  <%= link_to "edit", edit_movie_path(@movie) %>
+  <%= link_to "edit", edit_movie_path(@movie) %><br />
+  <%= link_to "add showings ->", new_movie_showing_path(@movie) %>
 <% end %>
 
 <p>Showtimes for this movie: </p>

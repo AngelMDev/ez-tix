@@ -1,4 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :require_admin, only: [:index, :show]
+
+  def index
+    @orders = Order.all
+    @movie_orders = Movie.movie_orders
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
 
   def new
     @showing = Showing.find(params[:showing_id])

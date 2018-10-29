@@ -7,6 +7,7 @@ class Order < ApplicationRecord
   validates :expiration_date, presence: true, format: { with: /\A[0-9]{2}\/[0-9]{2}\z/ }
   validates_with CreditcardValidator 
   validate :valid_showing
+  
 
   def movie_name
     self.showing.movie.name
