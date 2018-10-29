@@ -1,8 +1,6 @@
-<!-- todo: remove remote true where not necessary, NOT HERE THO -->
-<%= form_for @auditorium, remote: true do |f| %>
-  <%= f.label :name %>
+
+<%= bootstrap_form_for @auditorium, remote: true do |f| %>
   <%= f.text_field :name %>
-  <%= f.label :capacity %>
   <%= f.text_field :capacity %>
   <%= f.submit "Submit" %>
 <% end %>

@@ -1,17 +1,9 @@
-<ul>
-  <% @movies.each do |movie| %>
-    <li>
-      <%= link_to movie.name, movie %>
-      showings:
-      <ul>
-        <% movie.showings.available[0..3].each do |showing| %>
-          <li>
-            <%= link_to showing.formatted_date, movie_showing_path(movie.id, showing.id) %>
-          </li>
-        <% end %>
-      </ul>
-      <%= link_to "View more ->", movie %>
-    </li>
-  <% end %>
-</ul>
+<h2 class="text-center">Now Playing</h2>
+<div class="container">
+  <div class="row">   
+    <% @movies.each do |movie| %>
+      <%= render "card", movie: movie %>
+    <% end %>
+  </div>
+</div>
 

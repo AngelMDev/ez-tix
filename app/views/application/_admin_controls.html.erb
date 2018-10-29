@@ -1,0 +1,5 @@
+<% if session[:is_admin?] %>
+  <%= link_to "Edit movie", edit_movie_path(movie), { class: "btn btn-primary" } %>
+  <%= link_to "Add showings ->", new_movie_showing_path(movie), { class: "btn btn-primary" } %>
+  <%= link_to "Delete movie", movie, method: :delete, data: { confirm: "are you sure?" }, class: "btn btn-danger" %>
+<% end %>

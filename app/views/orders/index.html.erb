@@ -1,4 +1,4 @@
-<h2> Orders </h2>
+<h4> Orders (total: <%=@orders.count%>) </h4>
 
 <ul>
   <% @orders.each do |order| %>
@@ -6,11 +6,11 @@
   <% end %>
 </ul>
 
-<h2> Orders by movie </h2>
+<h4> Orders by movie </h4>
 
 <ul> 
   <% @movie_orders.keys.each do |movie| %>
-    <li> <%= movie %>: </li>
+    <li> <%= movie + " (#{@movie_orders[movie].count})"%>: </li>
     <ul> 
       <% @movie_orders[movie].each do |order| %>
         <li><%= link_to "#{order.created_at} purchased by #{order.name}", order %></li>

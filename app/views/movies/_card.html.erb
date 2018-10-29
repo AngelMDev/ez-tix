@@ -1,0 +1,18 @@
+<div class="col-sm-6 col-lg-3 py-2">
+  <div class="card h-100 compact">
+    <img class="card-img-top" src="<%= movie.poster_url %>">
+    <div class="card-body">
+      <h5 class="card-title"> <%= link_to movie.name, movie %> </h5>
+      <p class="card-text">
+          <% movie.showings.available[0..4].each do |showing| %>
+            <li>
+              <%= link_to showing.formatted_date, movie_showing_path(movie.id, showing.id) %>
+            </li>
+          <% end %>
+      </p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"><%= link_to "View more ->", movie %></small>
+    </div>
+  </div>
+</div>

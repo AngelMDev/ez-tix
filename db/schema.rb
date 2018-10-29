@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20181027030348) do
     t.string "genre"
     t.string "rating"
     t.integer "duration"
+    t.string "poster_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

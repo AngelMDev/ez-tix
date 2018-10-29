@@ -1,14 +1,10 @@
-<h2> Buy tickets for <%= @showing.movie.name %> </h2>
+<h4> Buy tickets for <%= @showing.movie.name %> </h4>
 <h3> Time and date: <%= @showing.formatted_date %> </h3>
 
-<%= form_for @order, url: {action: "create"}, remote: true do |f| %>
-  <%= f.label :name %>
+<%= bootstrap_form_for @order, url: {action: "create"} do |f| %>
   <%= f.text_field :name %>
-  <%= f.label :email %>
   <%= f.email_field :email %>
-  <%= f.label :credit_card %>
   <%= f.text_field :credit_card %>
-  <%= f.label :expiration_date %>
   <%= f.text_field :expiration_date %>
   <%= f.hidden_field :showing_id, value: @showing.id %>
   <%= f.submit "Purchase" %>

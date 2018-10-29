@@ -1,4 +1,4 @@
 <li id="showing_<%= showing.id %>"> 
   <%= "#{showing.formatted_date} in Auditorium #{showing.auditorium.id}" %>
-  <%= link_to "remove", movie_showing_path(showing.movie, showing), method: :delete, data: { confirm: "Are you sure?"}, remote: true %>
+  <%= link_to "remove", movie_showing_path(showing.movie, showing), method: :delete, data: { confirm: "Are you sure?"}, remote: true, class: "btn btn-danger btn-sm" %> 
 </li> 

@@ -1,5 +1,5 @@
 class AuditoriaController < ApplicationController
-
+  before_action :require_admin
   def new
     @auditoria = Auditorium.all
     @auditorium = Auditorium.new
@@ -30,7 +30,7 @@ class AuditoriaController < ApplicationController
       flash[:success] = "Auditorium updated successfully!"
       redirect_to new_auditorium_path
     else   
-      flash[:error] = auditorium.errors.full_messages.to_sentence
+      flash[:danger] = auditorium.errors.full_messages.to_sentence
       redirect_to new_auditorium_path
     end
   end

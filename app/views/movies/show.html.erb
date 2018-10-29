@@ -1,16 +1,17 @@
 <%= render "application/movie_details" %>
-<% if session[:is_admin?] %>
-  <%= link_to "edit", edit_movie_path(@movie) %><br />
-  <%= link_to "add showings ->", new_movie_showing_path(@movie) %>
-<% end %>
 
 <p>Showtimes for this movie: </p>
 
 <ul>
-<% @movie.showings.now_playing.each do |showing| %>
-  <% if !showing.sold_out? %>
-    <li><%= link_to showing.formatted_date, movie_showing_path(@movie, showing) %> </li>
-  <% else %>
-    <li><%= showing.formatted_date %> - Sold Out!</li>
+  <% @movie.showings.now_playing.each do |showing| %>
+    <% if !showing.sold_out? %>
+      <li><%= link_to showing.formatted_date, movie_showing_path(@movie, showing) %> </li>
+    <% else %>
+      <li><%= showing.formatted_date %> - Sold Out!</li>
+    <% end %>
   <% end %>
-<% end %>
+</ul>
+
+<%= render "application/admin_controls", movie: @movie %>
+
+<%= render "application/movie_details_end" %>

@@ -6,8 +6,14 @@ class MoviesController < ApplicationController
   end
 
   def index 
-    @movies = Movie.now_playing
+    if session[:is_admin?]
+      @movies = Movie.all
+    else
+      @movies = Movie.now_playing
+    end
   end 
+
+  #todo card deck limit for single row
 
   def new
     @movie = Movie.new
@@ -16,7 +22,11 @@ class MoviesController < ApplicationController
   def create
     movie = Movie.create(movie_params)
     if movie.persisted?
+      flash[:success] = "Movie created successfully!"
       redirect_to new_movie_showing_path(movie)
+    else
+      flash[:danger] = movie.errors.full_messages.to_sentence
+      redirect_to new_movie_path
     end
   end
 
@@ -30,20 +40,22 @@ class MoviesController < ApplicationController
       flash[:success] = "Movie updated successfully!"
       redirect_to movie
     else   
-      flash[:error] = movie.errors.full_messages.to_sentence
-      redirect_to movie
+      flash[:danger] = movie.errors.full_messages.to_sentence
+      redirect_to edit_movie_path(movie)
     end
   end
 
   def destroy
     movie = Movie.find(params[:id])
     movie.destroy
+    flash[:warning] = "Movie deleted sucessfully"
+    redirect_to root_path
   end
 
   private
 
   def movie_params
-    params.require(:movie).permit(:name, :description, :genre, :rating, :duration)
+    params.require(:movie).permit(:name, :description, :genre, :rating, :duration, :poster_url)
   end
 
 end

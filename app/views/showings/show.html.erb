@@ -2,4 +2,10 @@
 
 <p> Date and time: <%= @showing.formatted_date %> </p>
 
-<%= link_to "Buy", new_order_path(showing_id: @showing.id) %>
+<%= link_to "Buy Tickets ->", new_order_path(showing_id: @showing.id), class: "btn btn-success" %> 
+
+<br /><br />
+
+<%= render "application/admin_controls", movie: @movie %>
+
+<%= render "application/movie_details_end" %>
