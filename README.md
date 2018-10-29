@@ -8,6 +8,8 @@ The app uses PG in development and production.
 
 run ``` rake db:seed ``` to populate the DB with seed data.
 
+Switch between admin an customer views with the "View as Admin/User" link in the navbar.
+
 # DB Modeling
 
 A basic diagram of the database:
