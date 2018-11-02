@@ -1,6 +1,7 @@
 class CreditcardValidator < ActiveModel::Validator
   def validate(record)
-    unless record.expiration_date.blank?
+    pattern = /\A[0-9]{2}\/[0-9]{2}\z/
+    unless record.expiration_date.blank? or !pattern.match? record.expiration_date
       exp = record.expiration_date.split("/")
       exp[1].prepend("20")
       exp.map!(&:to_i)
