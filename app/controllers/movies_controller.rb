@@ -13,8 +13,6 @@ class MoviesController < ApplicationController
     end
   end 
 
-  #todo card deck limit for single row
-
   def new
     @movie = Movie.new
   end
