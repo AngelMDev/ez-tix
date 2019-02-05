@@ -1,4 +1,5 @@
 # README
+ez-tix is a Ruby on Rails application to easily manage a movie theater. The app allows administrators to add movies and showtimes, create auditoriums and view sales. End users can view and purchase tickets for available movies.
 
 # Usage
 
